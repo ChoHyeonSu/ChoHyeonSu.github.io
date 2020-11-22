@@ -1,45 +1,61 @@
-title: Texture Theme
-author: GitHub User
+
+
+
+# Site Settings
+title: Mere Blog Theme
+tagline: Mere Blog Theme
 email: your-email@domain.com
-description: > # this means to ignore newlines until "show_exerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-show_excerpts: true # set to true to show excerpts on the homepage
+description: >
+  The demo site for Mere Blog Theme, made for Jekyll and GitHub pages websites
 baseurl:
+remote_theme : chrisrhymes/mere-blog-theme
+url: "https://www.csrhymes.com"
+permalink: pretty
 
-remote_theme : thelehhman/texture
-
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-sass:
-  sass_dir: _sass
-
-permalink: /posts/:title/
-texture:
-  title: Adam Denisov
-  tagline: Developer. Designer
-  date_format: "%b %-d, %Y"
-  style: black
-  showNav: false
-  showPicker: true
-
-  # generate social links in footer
-  social_links:
-    twitter: thelehhman
-    github:  thelehhman
-    linkedIn: in/thelehhman
-    rss: rss
- 
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-
-# Build settings
-# theme: texture
+paginate: 6
+paginate_path: "/page:num"
 
 plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-feed
   - jekyll-seo-tag
-#  - jekyll-feed
+  - kramdown
+  - rouge
+
+exclude:
+  - Gemfile
+  - clean-theme.gemspec
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+livereload: true
+
+sass:
+  style: compressed
+  source_dir: _sass
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "C.S. Rhymes"
+      layout: post
+      image: /img/home.jpg
+      show_sidebar: true
+  -
+    scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+
+collections:
+  authors:
+    output: true
